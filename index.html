@@ -1,1 +1,129 @@
-Test file
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Hg-Git Mercurial Plugin</title>
+	<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript" src="js/thickbox-compressed.js"></script>
+	<script type="text/javascript" src="js/jquery.corner.js"></script>
+	
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+  <!--[if IE]>
+    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
+  <![endif]-->
+  
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8"/>
+  <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="span-21" id="header">
+      <div class="span-10">
+        <img height="50" src="images/logov3.png">
+      </div>
+
+      <div class="span-11 last">
+        <div id="links">
+          get the source in
+          <a href="http://github.com/schacon/hg-git">git</a> or
+          <a href="http://bitbucket.org/Scotty/hg-git">hg</a>, then 
+          <a href="http://github.com/schacon/hg-git/issues">send feedback</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="span-21" id="welcome">
+      <h1 class="tbar"><small>the</small> Hg-Git <small>mercurial plugin</small></h1>
+      <p>This is the Hg-Git plugin for Mercurial, adding the ability to <strong>push to and pull from a Git server</strong> repository from Hg. This means you can collaborate on Git based projects from Hg, or use a Git server as a collaboration point for a team with developers using both Git and Hg.</p>
+    </div>
+
+    <div class="span-21">
+      <div class='section'>
+        <div class="title">The Big Idea</div>
+        <img style="float:right; padding:10px;" height="120" src="images/server.png">
+        <p>The Hg-Git plugin can <strong>convert commits/changesets losslessly</strong> from one system to another, so you can push via an Hg repository and another Hg client can pull it and thier changeset node ids will be identical - Mercurial data does not get lost in translation. </p>
+        <p>It is intended that Hg users may wish to use this to collaborate even if no Git users are involved in the project, as it may provide some advantages if you're using Bookmarks (see below).</p>
+      </div>
+
+      <div class='section'>
+        <div class="title">Commands</div>
+
+        <p>You can clone a Git repository from Hg by running <code>hg gclone [url]</code>. It will create a directory appended with a '-hg', for example, if you were to run <code>hg gclone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger-hg', then convert it to an Hg repository for you.</p>
+
+      <pre>hg gclone git://github.com/schacon/munger.git</pre>
+
+        <p>If you are starting from an existing Hg repository, you have to setup a Git repository somewhere that you have push access to, add it as a Git remote and then run <code>hg gpush</code> from within your project. For example:</p>
+
+      <pre>$ cd hg-git # (an Hg repository)
+$ hg gremote add origin git@github.com/schacon/hg-git.git
+$ hg push</pre>
+
+        <p>This will convert all our Hg data into Git objects and push them up to the Git server.</p>
+
+        <p>Now that you have an Hg repository that can push/pull to/from a Git repository, you can fetch updates with <code>hg gfetch</code>.</p>
+
+      <pre>$ hg gfetch</pre>
+
+        <p>That will pull down any commits that have been pushed to the server in the meantime and give you a new head that you can merge in.</p>
+    </div>
+
+      <div class='section'>
+        <div class="title">Installing</div>
+        <p>Clone this repository somewhere, or <a href="http://github.com/schacon/hg-git/zipball/master">download a snapshot</a>, then make the 'extensions' section in your '<code>~/.hgrc</code>' file look something like this:</p>
+
+        <pre>[extensions]
+  hgext.bookmarks =
+  hgext.hg-git = [path-to]/hg-git</pre>
+
+        <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer.</p>
+      </div>
+
+      <div class='section'>
+        <div class="title">Dependencies</div>
+        <p>This plugin is implemented entirely in Python - there are <strong>no Git binary dependencies</strong>, you do not need to have Git installed on your system. There are in fact no external dependencies currently other than Mercurial. The plugin is known to work on Hg versions 1.1 and 1.2.</p>
+      </div>
+
+
+    </div>
+
+    <div class="span-21">
+      <div id="bottom">
+        This plugin was developed by the folks at <a href="http://github.com">GitHub</a>
+      </div>
+    </div>
+
+    <div id="footer" class="span-21">
+      <div class="info span-12">
+        <div class="links">
+          <a href="http://github.com/blog">Blog</a> |
+          <a href="http://support.github.com/">Support</a> |
+          <a href="http://github.com/training">Git Training</a> |
+          <a href="http://github.com/contact">Contact</a> |
+          <a href="http://groups.google.com/group/github/">Google Group</a>
+        </div>
+        <div class="company">
+          GitHub is <a href="http://logicalawesome.com/">Logical Awesome</a> &copy;2009 | <a href="http://github.com/site/terms">Terms of Service</a> | <a href="http://github.com/site/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="fork span-7">
+        This website is <a href="http://github.com/develop/develop.github.com">open source</a>.
+        Please help us by forking the project and adding to it.
+      </div>
+    </div>
+
+  </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('.title').corner();
+    $('.tbar').corner();
+  });
+</script>
+
+</body>
+</html>
