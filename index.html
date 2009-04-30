@@ -53,9 +53,9 @@
       <div class='section'>
         <div class="title">Commands</div>
 
-        <p>You can clone a Git repository from Hg by running <code>hg gclone [url]</code>. It will create a directory appended with a '-hg', for example, if you were to run <code>hg gclone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger-hg', then convert it to an Hg repository for you.</p>
+        <p>You can clone a Git repository from Hg by running <code>hg clone [url]</code>. It will create a directory appended with a '-hg', for example, if you were to run <code>hg clone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger-hg', then convert it to an Hg repository for you.</p>
 
-      <pre>hg gclone git://github.com/schacon/munger.git</pre>
+      <pre>hg clone git://github.com/schacon/munger.git</pre>
 
         <p>If you are starting from an existing Hg repository, you have to setup a Git repository somewhere that you have push access to, add it as a Git remote and then run <code>hg gpush</code> from within your project. For example:</p>
 
