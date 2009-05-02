@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -40,6 +41,7 @@
     <div class="span-21" id="welcome">
       <h1 class="tbar"><small>the</small> Hg-Git <small>mercurial plugin</small></h1>
       <p>This is the Hg-Git plugin for Mercurial, adding the ability to <strong>push to and pull from a Git server</strong> repository from Hg. This means you can collaborate on Git based projects from Hg, or use a Git server as a collaboration point for a team with developers using both Git and Hg.</p>
+      <p><strong>Achtung! This software is still in beta.</strong>  The mapping scheme is still subject to change, so use it if you want to submit bug reports, but you may not want to use it for production work quite yet. I figure it will be release quality in a few weeks (in May sometime).</p>
     </div>
 
     <div class="span-21">
@@ -60,8 +62,8 @@
         <p>If you are starting from an existing Hg repository, you have to setup a Git repository somewhere that you have push access to, add it as a Git remote and then run <code>hg gpush</code> from within your project. For example:</p>
 
       <pre>$ cd hg-git # (an Hg repository)
-$ hg gremote add origin git@github.com/schacon/hg-git.git
-$ hg push</pre>
+$ hg gremote add origin git@github.com:schacon/hg-git.git
+$ hg gpush</pre>
 
         <p>This will convert all our Hg data into Git objects and push them up to the Git server.</p>
 
@@ -77,8 +79,8 @@ $ hg push</pre>
         <p>Clone this repository somewhere, or <a href="http://github.com/schacon/hg-git/zipball/master">download a snapshot</a>, then make the 'extensions' section in your '<code>~/.hgrc</code>' file look something like this:</p>
 
         <pre>[extensions]
-  hgext.bookmarks =
-  hgext.hg-git = [path-to]/hg-git</pre>
+hgext.bookmarks =
+hgext.hg-git = [path-to]/hg-git</pre>
 
         <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer.</p>
       </div>

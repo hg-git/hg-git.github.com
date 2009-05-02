@@ -21,7 +21,7 @@ h2 { background: #ddd; text-align: center; padding: 4px; }
 .info, .fork { padding: 10px; }
 .content { font-size: 1.2em; }
 
-pre { margin: 3px; padding: 8px 20px; background: #ffd; font-size: 0.9em; }
+pre { margin: 3px; padding: 8px 20px; background: #ffd; font-size: 1.4em; }
 
 #links { padding: 10px; }
 #links a { font-weight: bold; }
@@ -30,5 +30,5 @@ pre { margin: 3px; padding: 8px 20px; background: #ffd; font-size: 0.9em; }
 
 .title { color: #a10; background: #f86; font-size: 1.4em; font-weight:bold; padding: 3px 8px; margin-bottom: 10px; }
 .title a { color: #a10; }
-.section p { padding: 1px 14px; font-size: 1.1em;}
+.section p { padding: 1px 14px; font-size: 1.1em; margin-top: 20px; }
 
