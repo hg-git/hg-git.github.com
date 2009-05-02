@@ -41,7 +41,6 @@
     <div class="span-21" id="welcome">
       <h1 class="tbar"><small>the</small> Hg-Git <small>mercurial plugin</small></h1>
       <p>This is the Hg-Git plugin for Mercurial, adding the ability to <strong>push to and pull from a Git server</strong> repository from Hg. This means you can collaborate on Git based projects from Hg, or use a Git server as a collaboration point for a team with developers using both Git and Hg.</p>
-      <p><strong>Achtung! This software is still in beta.</strong>  The mapping scheme is still subject to change, so use it if you want to submit bug reports, but you may not want to use it for production work quite yet. I figure it will be release quality in a few weeks (in May sometime).</p>
     </div>
 
     <div class="span-21">
@@ -55,9 +54,9 @@
       <div class='section'>
         <div class="title">Commands</div>
 
-        <p>You can clone a Git repository from Hg by running <code>hg gclone [url]</code>. It will create a directory appended with a '-hg', for example, if you were to run <code>hg gclone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger-hg', then convert it to an Hg repository for you.</p>
+        <p>You can clone a Git repository from Hg by running <code>hg clone [url]</code>. It will create a directory appended with a '-hg', for example, if you were to run <code>hg clone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger-hg', then convert it to an Hg repository for you.</p>
 
-      <pre>hg gclone git://github.com/schacon/munger.git</pre>
+      <pre>hg clone git://github.com/schacon/munger.git</pre>
 
         <p>If you are starting from an existing Hg repository, you have to setup a Git repository somewhere that you have push access to, add it as a Git remote and then run <code>hg gpush</code> from within your project. For example:</p>
 
@@ -79,8 +78,8 @@ $ hg gpush</pre>
         <p>Clone this repository somewhere, or <a href="http://github.com/schacon/hg-git/zipball/master">download a snapshot</a>, then make the 'extensions' section in your '<code>~/.hgrc</code>' file look something like this:</p>
 
         <pre>[extensions]
-hgext.bookmarks =
-hgext.hg-git = [path-to]/hg-git</pre>
+  hgext.bookmarks =
+  hgext.hg-git = [path-to]/hg-git</pre>
 
         <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer.</p>
       </div>
