@@ -77,11 +77,19 @@ $ hg push</pre>
 
       <div class='section'>
         <div class="title">Installing</div>
+        <h3>The easy way</h3>
+        <p>Run <code>easy_install hg-git</code>, then add make sure the following is in your <code>~/.hgrc</code>:</p>
+        <pre>[extensions]
+hgext.bookmarks =
+hggit = </pre>
+        <p>...and that's it!</p>
+
+        <h3>The more involved way</h3>
         <p>First, install version 0.4.0 or newer of <a href="http://pypi.python.org/pypi/dulwich">dulwich</a>. You can do <code>easy_install 'dulwich>=0.4.0'</code> if you have setuptools installed. Clone this repository somewhere, or <a href="http://github.com/schacon/hg-git/zipball/master">download a snapshot</a>, then make the 'extensions' section in your '<code>~/.hgrc</code>' file look something like this:</p>
 
         <pre>[extensions]
 hgext.bookmarks =
-hgext.hggit = [path-to]/hg-git</pre>
+hggit = [path-to]/hg-git/hggit</pre>
 
         <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer. Bookmarks will be translated to git heads when pushing.</p>
       </div>
