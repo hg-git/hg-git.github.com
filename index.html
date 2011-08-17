@@ -91,6 +91,18 @@ hggit = </pre>
 hgext.bookmarks =
 hggit = [path-to]/hg-git/hggit</pre>
 
+	<h3>Ubuntu Specific</h3>
+	<p>Add the <a href=https://launchpad.net/~mercurial-ppa">Mercurial PPA</a></p>
+	<pre>$ sudo add-apt-repository ppa:mercurial-ppa/releases
+$ sudo apt-get update
+$ sudo apt-get install mercurial-git</pre>
+
+	<p>Modify your <code>~/.hgrc</code> file</p>
+	<pre>[extenstion]
+hgext.bookmarks =
+hgext.git =</pre>
+	<p>Note that Debian/Ubuntu package maintainers use <code>git</code> instead of <code>hggit</code></p>
+
         <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer. Bookmarks will be translated to git heads when pushing.</p>
       </div>
 
