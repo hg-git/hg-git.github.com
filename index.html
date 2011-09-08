@@ -1,125 +1,178 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Hg-Git Mercurial Plugin</title>
-        <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
-        <script type="text/javascript" src="js/thickbox-compressed.js"></script>
-        <script type="text/javascript" src="http://github.com/javascripts/jquery.corner.js"></script>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Hg-Git Mercurial Plugin</title>
+    <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+    <script type="text/javascript" src="js/thickbox-compressed.js"></script>
+    <script type="text/javascript" src="http://github.com/javascripts/jquery.corner.js"></script>
 
-        <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection">
-  <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
-  <!--[if IE]>
-    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
-  <![endif]-->
+    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection">
+      <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+        <!--[if IE]>
+            <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
+              <![endif]-->
 
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8"/>
-  <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen"/>
-</head>
+        <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen"/>
+      </head>
 
-<body>
-  <div class="container">
+      <body>
+        <div class="container">
+        <h1 class="tbar"><small>the</small> Hg-Git <small>mercurial plugin</small></h1>
+        <p>
+          This is the Hg-Git plugin for Mercurial, adding the ability
+          to <strong>push to and pull from a Git server</strong>
+          repository from Mercurial. This means you can collaborate on Git
+          based projects from Mercurial, or use a Git server as a
+          collaboration point for a team with developers using both Git
+          and Mercurial.
+        </p>
 
-    <div class="span-21" id="header">
-      <div class="span-10">
-        <a href="http://github.com"><img height="50" src="images/logov3.png"></a>
-      </div>
-
-      <div class="span-11 last">
-        <div id="links">
-          get the source in
-          <a href="http://github.com/schacon/hg-git">git</a> or
-          <a href="http://bitbucket.org/durin42/hg-git">hg</a>, then
-          <a href="http://github.com/schacon/hg-git/issues">send feedback</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="span-21" id="welcome">
-      <h1 class="tbar"><small>the</small> Hg-Git <small>mercurial plugin</small></h1>
-      <p>This is the Hg-Git plugin for Mercurial, adding the ability to <strong>push to and pull from a Git server</strong> repository from Mercurial. This means you can collaborate on Git based projects from Mercurial, or use a Git server as a collaboration point for a team with developers using both Git and Mercurial.</p>
-      <p><strong>Warning, this software is still beta.</strong>  It is basically feature complete and pretty stable now, but there are still some edge cases we don't handle well yet and it may be slow in some circumstances. The user interface is also still subject to change. However, there are now a lot of people using it effectively, so please do use it and let me know if you run into anything.</p>
-    </div>
-
-    <div class="span-21">
       <div class='section'>
         <div class="title">The Big Idea</div>
         <img style="float:right; padding:10px;" height="120" src="images/server.png">
-        <p>The Hg-Git plugin can <strong>convert commits/changesets losslessly</strong> from one system to another, so you can push via a Mercurial repository and another Mercurial client can pull it and their changeset node ids will be identical - Mercurial data does not get lost in translation. </p>
-        <p>It is intended that Hg users may wish to use this to collaborate even if no Git users are involved in the project, as it may provide some advantages if you're using Bookmarks (it will transfer bookmarks on push, which Mercurial doesn't do).</p>
-      </div>
+          <p>
+            The Hg-Git plugin can <strong>convert commits/changesets
+              losslessly</strong> from one system to another, so you can
+            push via a Mercurial repository and another Mercurial
+            client can pull it. In theory, the changeset IDs should
+            not change, although this may not hold true for complex
+            histories.
+          </p>
+        </div>
 
-      <div class='section'>
-        <div class="title">Commands</div>
+        <div class='section'>
+          <div class="title">Commands</div>
 
-        <p>You can clone a Git repository from Mercurial by running <code>hg clone [url]</code>. It will create a directory with the same name as the last path component. For example, if you were to run <code>hg clone git://github.com/schacon/munger.git</code> it would clone the repository down into the directory 'munger.git', then convert it to a Mercurial repository for you.</p>
+          <p>
+            You can clone a Git repository from Mercurial by
+            running <code>hg clone [url]</code>. It will create a
+            directory with the same name as the last path component. For
+            example, if you were to run <code>hg clone
+              git://github.com/schacon/munger.git</code> it would clone
+            the repository down into the directory 'munger.git', then
+            convert it to a Mercurial repository for you.
+          </p>
 
       <pre>hg clone git://github.com/schacon/munger.git</pre>
 
-        <p>If you are starting from an existing Mercurial repository, you have to setup a Git repository somewhere that you have push access to, and then run <code>hg push [path]</code> from within your project. For example:</p>
+        <p>
+          If you are starting from an existing Mercurial repository,
+          you have to setup a Git repository somewhere that you have
+          push access to, and then run <code>hg push [path]</code>
+          from within your project. For example:
+        </p>
 
-      <pre>$ cd hg-git # (a Mercurial repository)
+        <pre>$ cd hg-git # (a Mercurial repository)
 $ hg bookmark -r default master # make a bookmark of master for default, so a ref gets created
 $ hg push git+ssh://git@github.com/schacon/hg-git.git
 $ hg push</pre>
 
-        <p>This will convert all our Mercurial data into Git objects and push them up to the Git server. You can also put that path in the <code>[paths]</code> section of .hg/hgrc and then push to it by name. </p>
+        <p>
+          This will convert all our Mercurial data into Git objects
+          and push them up to the Git server. You can also put that
+          path in the <code>[paths]</code> section of .hg/hgrc and
+          then push to it by name.
+        </p>
 
-        <p>Now that you have a Mercurial repository that can push/pull to/from a Git repository, you can fetch updates with <code>hg pull</code>.</p>
+        <p>
+          Now that you have a Mercurial repository that can push/pull
+          to/from a Git repository, you can get updates
+          with <code>hg pull</code>.
+        </p>
 
       <pre>$ hg pull</pre>
 
-        <p>That will pull down any commits that have been pushed to the server in the meantime and give you a new head that you can merge in.</p>
+        <p>
+          That will pull down any commits that have been pushed to the
+          server in the meantime and give you a new head that you can
+          merge in.
+        </p>
     </div>
 
       <div class='section'>
         <div class="title">Installing</div>
-        <h3>The easy way</h3>
-        <p>Run <code>easy_install hg-git</code>, then add make sure the following is in your <code>~/.hgrc</code>:</p>
+        <h3>The easy way (presently broken for hg 1.8 and later):</h3>
+        <p>
+          Run <code>easy_install hg-git</code>, then add make sure the
+          following is in your <code>~/.hgrc</code>:
+        </p>
         <pre>[extensions]
 hgext.bookmarks =
 hggit = </pre>
         <p>...and that's it!</p>
 
         <h3>The more involved way</h3>
-        <p>First, install version 0.8.0 or newer of <a href="http://pypi.python.org/pypi/dulwich">dulwich</a>. You can do <code>easy_install 'dulwich>=0.8.0'</code> if you have setuptools installed. Clone this repository somewhere, or <a href="http://github.com/schacon/hg-git/zipball/master">download a snapshot</a>, then make the 'extensions' section in your '<code>~/.hgrc</code>' file look something like this:</p>
+        <p>
+          First, install version 0.8.0 or newer
+          of <a href="http://pypi.python.org/pypi/dulwich">dulwich</a>. You
+          can do <code>easy_install 'dulwich>=0.8.0'</code> if you
+          have setuptools
+          installed. Clone <a href="http://bitbucket.org/durin42/hg-git">this
+          repository</a> somewhere, then make the 'extensions' section in your
+          '<code>~/.hgrc</code>' file look something like this:
+        </p>
 
         <pre>[extensions]
 hgext.bookmarks =
 hggit = [path-to]/hg-git/hggit</pre>
 
-        <p>That will enable the Hg-Git extension for you. The bookmarks section is not compulsory, but it makes some things a bit nicer. Bookmarks will be translated to git heads when pushing.</p>
+        <p>
+          That will enable the Hg-Git extension for you. The bookmarks
+          section is only required prior to hg 1.7. Bookmarks will be
+          translated to git heads when pushing.
+        </p>
       </div>
 
       <div class='section'>
         <div class="title">Dependencies</div>
-        <p>This plugin is implemented entirely in Python - there are <strong>no Git binary dependencies</strong>, you do not need to have Git installed on your system. There are in fact no external dependencies currently other than Mercurial and Dulwich. The plugin is known to work on Mercurial 1.3. Versions 1.1 and 1.2 of Mercurial should be supported, but that support hasn't been well-tested in a while.</p>
-        <p>Note that Dulwich has C extensions, so it requires a C compiler when installing via easy_install.  On Windows, one option is the free<a href="http://www.microsoft.com/express/Downloads/#2008-Visual-CPP">Microsoft Visual C++</a>.  Be sure to install the 2008 version for compatibility reasons.  On debian-style linux, run: <code>apt-get install python-dev.</code></p>
+        <p>
+          This plugin is implemented entirely in Python - there
+          are <strong>no Git binary dependencies</strong>, you do not
+          need to have Git installed on your system. There are in fact
+          no external dependencies currently other than Mercurial and
+          Dulwich. The plugin is known to work on Mercurial 1.7, and
+          is basically functional (with a couple of bugs) against hg
+          1.8 and 1.9.
+        </p>
+        <p>
+          Note that Dulwich has C extensions, so it requires a C
+          compiler when installing via easy_install.  On Windows, one
+          option is the
+          free <a href="http://www.microsoft.com/express/Downloads/#2008-Visual-CPP">Microsoft
+          Visual C++</a>.  Be sure to install the 2008 version for
+          compatibility reasons.  On debian-style linux,
+          run: <code>apt-get install python-dev.</code>
+        </p>
       </div>
 
-
-    </div>
+      <div class='section'>
+        <div class="title">Sources</div>
+        <p>
+          Source available via
+          <a href="http://bitbucket.org/durin42/hg-git">hg</a>
+          (canonical repo) or
+          <a href="http://github.com/schacon/hg-git">git</a> (mirror
+          of hg). Patches preferred via email to
+          the <a href="http://groups.google.com/group/hg-git">hg-git
+          mailing list</a>.
+        </p>
+      </div>
 
     <div class="span-21">
       <div id="bottom">
-        This plugin was developed by the folks at <a href="http://github.com">GitHub</a>
+        This plugin was originally developed by the folks
+        at <a href="http://github.com">GitHub</a>, and is currently
+        maintained by Augie Fackler.
       </div>
     </div>
 
     <div id="footer" class="span-21">
       <div class="info span-12">
         <div class="links">
-          <a href="http://github.com/blog">Blog</a> |
-          <a href="http://support.github.com/">Support</a> |
-          <a href="http://github.com/training">Git Training</a> |
-          <a href="http://github.com/contact">Contact</a> |
-          <a href="http://groups.google.com/group/github/">Google Group</a>
-        </div>
-        <div class="company">
-          GitHub is <a href="http://logicalawesome.com/">Logical Awesome</a> &copy;2009 | <a href="http://github.com/site/terms">Terms of Service</a> | <a href="http://github.com/site/privacy">Privacy Policy</a>
+          <a href="http://groups.google.com/group/hg-git/">Google Group</a>
         </div>
       </div>
       <div class="fork span-7">
