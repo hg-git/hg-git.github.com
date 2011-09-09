@@ -94,7 +94,7 @@ $ hg push</pre>
 
       <div class='section'>
         <div class="title">Installing</div>
-        <h3>The easy way (presently broken for hg 1.8 and later):</h3>
+        <h3>The easy way:</h3>
         <p>
           Run <code>easy_install hg-git</code>, then add make sure the
           following is in your <code>~/.hgrc</code>:
@@ -102,7 +102,10 @@ $ hg push</pre>
         <pre>[extensions]
 hgext.bookmarks =
 hggit = </pre>
-        <p>...and that's it!</p>
+        <p>
+          ...and that's it! Note that this requires having working C
+          compilers on your system.
+        </p>
 
         <h3>The more involved way</h3>
         <p>
