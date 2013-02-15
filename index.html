@@ -155,9 +155,17 @@ hggit = [path-to]/hg-git/hggit</pre>
       <div class='section'>
         <div class="title">Dependencies</div>
         <p>
-          This plugin is known to work on Mercurial 1.7, and is
-          basically functional (with a couple of bugs) against hg 1.8
-          and 1.9. It also needs Dulwich version 0.8.0 or later; Dulwich
+          Different versions of hg-git are known to work with different
+          versions of Mercurial. For the most accurate info, go to
+          <a href="https://bitbucket.org/durin42/hg-git/src">the source
+          on bitbucket</a>, click the dropdown menu that says "default",
+          click the "Tags" tab, select the version you've installed, and
+          click on the file "Makefile". There's a line that starts with
+          "all-version-tests" which lists the versions of Mercurial
+          known to work.
+        </p>
+        <p>
+          It also needs Dulwich version 0.8.0 or later; Dulwich
           is a pure-Python implementation of the Git file formats and
           protocols. There are <strong>no Git binary
             dependencies</strong>: you do not need to have Git installed
