@@ -21,7 +21,7 @@ h2 { background: #ddd; text-align: center; padding: 4px; }
 .info, .fork { padding: 10px; }
 .content { font-size: 1.2em; }
 
-pre { margin: 3px; padding: 8px 20px; background: #ffd; font-size: 1.4em; }
+pre { margin: 3px; padding: 8px 20px; background: #ffd; font-size: 1.4em; word-wrap: break-word; }
 
 #links { padding: 10px; }
 #links a { font-weight: bold; }
