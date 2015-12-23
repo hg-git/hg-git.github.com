@@ -46,6 +46,8 @@
         <div class='section'>
           <div class="title">Commands</div>
 
+          <h3>Clone a Git repository</h3>
+
           <p>
             You can clone a Git repository from Mercurial by
             running <code>hg clone [url]</code>. It will create a
@@ -58,6 +60,10 @@
 
       <pre>hg clone git://github.com/schacon/munger.git</pre>
 
+          <p>And you're off!</p>
+
+          <h3>Push an existing Hg repository to Git</h3>
+
         <p>
           If you are starting from an existing Mercurial repository,
           you have to setup a Git repository somewhere that you have
@@ -66,21 +72,27 @@
         </p>
 
         <pre>$ cd mercurial-repo
-$ hg bookmark -r default master # so a ref gets created
-$ hg push git+ssh://git@github.com/schacon/some-repo.git
-$ hg push</pre>
+$ hg bookmark -r default master # so a ref gets created</pre>
+
+        <p>
+          To avoid specifying the repo path when you push and pull,
+          edit <code>.hg/hgrc</code> and add:
+        </p>
+
+        <pre>[paths]
+default = git+ssh://git@github.com/schacon/some-repo.git</pre>
+
+        <p>
+          See
+          <a href="https://www.selenic.com/mercurial/hgrc.5.html#paths">
+          the Mercurial docs</a> for more detail on path settings.
+        </p>
+
+        <pre>$ hg push</pre>
 
         <p>
           This will convert all our Mercurial data into Git objects
-          and push them up to the Git server. You can also put that
-          path in the <code>[paths]</code> section of .hg/hgrc and
-          then push to it by name.
-        </p>
-
-        <p>
-          Now that you have a Mercurial repository that can push/pull
-          to/from a Git repository, you can get updates
-          with <code>hg pull</code>.
+          and push them up to the Git server.
         </p>
 
       <pre>$ hg pull</pre>
