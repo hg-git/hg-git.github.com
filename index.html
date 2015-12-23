@@ -49,18 +49,15 @@
           <h3>Clone a Git repository</h3>
 
           <p>
-            You can clone a Git repository from Mercurial by
-            running <code>hg clone [url]</code>. It will create a
-            directory with the same name as the last path component. For
-            example, if you were to run <code>hg clone
-              git://github.com/schacon/munger.git</code> it would clone
-            the repository down into the directory 'munger.git', then
-            convert it to a Mercurial repository for you.
+            Eg:
           </p>
 
-      <pre>hg clone git://github.com/schacon/munger.git</pre>
+          <pre>hg clone git://github.com/schacon/munger.git</pre>
 
-          <p>And you're off!</p>
+          <p>
+            Like with normal <code>hg clone</code>, you can optionally
+            specify a destination directory.
+          </p>
 
           <h3>Push an existing Hg repository to Git</h3>
 
