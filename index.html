@@ -46,41 +46,39 @@
         <div class='section'>
           <div class="title">Commands</div>
 
+          <h3>Clone a Git repository</h3>
+
+          <pre>hg clone git://github.com/schacon/some-repo.git</pre>
+
           <p>
-            You can clone a Git repository from Mercurial by
-            running <code>hg clone [url]</code>. It will create a
-            directory with the same name as the last path component. For
-            example, if you were to run <code>hg clone
-              git://github.com/schacon/munger.git</code> it would clone
-            the repository down into the directory 'munger.git', then
-            convert it to a Mercurial repository for you.
+            Like with normal <code>hg clone</code>, you can optionally
+            specify a destination directory.
           </p>
 
-      <pre>hg clone git://github.com/schacon/munger.git</pre>
+          <h3>Push an existing Hg repository to Git</h3>
+
+        <pre>$ cd mercurial-repo
+$ hg bookmark -r default master # so a ref gets created</pre>
 
         <p>
-          If you are starting from an existing Mercurial repository,
-          you have to setup a Git repository somewhere that you have
-          push access to, and then run <code>hg push [path]</code>
-          from within your project. For example:
+          To avoid specifying the repo path when you push and pull,
+          edit <code>.hg/hgrc</code> and add:
         </p>
 
-        <pre>$ cd hg-git # (a Mercurial repository)
-$ hg bookmark -r default master # make a bookmark of master for default, so a ref gets created
-$ hg push git+ssh://git@github.com/schacon/hg-git.git
-$ hg push</pre>
+        <pre>[paths]
+default = git+ssh://git@github.com/schacon/some-repo.git</pre>
 
         <p>
-          This will convert all our Mercurial data into Git objects
-          and push them up to the Git server. You can also put that
-          path in the <code>[paths]</code> section of .hg/hgrc and
-          then push to it by name.
+          See
+          <a href="https://www.selenic.com/mercurial/hgrc.5.html#paths">
+          the Mercurial docs</a> for more detail on path settings.
         </p>
 
+        <pre>$ hg push</pre>
+
         <p>
-          Now that you have a Mercurial repository that can push/pull
-          to/from a Git repository, you can get updates
-          with <code>hg pull</code>.
+          This will convert all Mercurial data into Git objects
+          and push them up to the Git server.
         </p>
 
       <pre>$ hg pull</pre>
