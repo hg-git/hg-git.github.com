@@ -121,7 +121,6 @@ default = git+ssh://git@github.com/schacon/some-repo.git</pre>
           following is in your <code>~/.hgrc</code>:
         </p>
         <pre>[extensions]
-hgext.bookmarks =
 hggit = </pre>
         <p>
           ...and that's it!
@@ -147,12 +146,10 @@ hggit = </pre>
         </p>
 
         <pre>[extensions]
-hgext.bookmarks =
 hggit = [path-to]/hg-git/hggit</pre>
 
         <p>
-          That will enable the Hg-Git extension for you. The bookmarks
-          section is only required prior to hg 1.7. Bookmarks will be
+          That will enable the Hg-Git extension for you. Bookmarks will be
           translated to git heads when pushing.
         </p>
       </div>
