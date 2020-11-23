@@ -100,31 +100,30 @@ default = git+ssh://git@github.com/schacon/some-repo.git</pre>
           Visual C++</a>. (Be sure to install the 2008 version for
           compatibility reasons.) On Debian-style Linux,
           run <code>apt-get install python-dev</code>.
-        </p>                
+        </p>
         <p>
           Secondly, run <code>easy_install hg-git</code>. If you don't
           have easy_install available, you can get it as part of
-          Python's 
+          Python's
           <a href="https://pypi.org/project/setuptools/">setuptools</a>
           package.
         </p>
-        
+
         <p>
           Alternatively, on Windows, <a href="https://tortoisehg.bitbucket.io">TortoiseHg</a>
-          comes with hg-git (and Dulwich), though it 
+          comes with hg-git (and Dulwich), though it
           <a href="https://tortoisehg.readthedocs.io/en/latest/nonhg.html#hg-git-git">still needs to be enabled</a>
           as shown below (or through the TortoiseHg settings).
         </p>
-        
+
         <p>
           Lastly, make sure the
           following is in your <code>~/.hgrc</code>:
         </p>
         <pre>[extensions]
-hgext.bookmarks =
 hggit = </pre>
         <p>
-          ...and that's it! 
+          ...and that's it!
         </p>
 
         <h3>Installing Hg-Git manually</h3>
@@ -134,10 +133,10 @@ hggit = </pre>
           install Hg-Git in a location you choose yourself.
         </p>
         <p>
-          First, install version 0.8.0 or newer of 
-          <a href="https://pypi.org/project/dulwich/">Dulwich</a>. 
-          You can do 
-          <code>easy_install 'dulwich>=0.8.0'</code> if you have 
+          First, install version 0.19.0 or newer of
+          <a href="https://pypi.org/project/dulwich/">Dulwich</a>.
+          You can do
+          <code>easy_install 'dulwich>=0.19.0'</code> if you have
           <a href="https://pypi.org/project/setuptools/">setuptools</a>
           installed. Next, clone 
           <a href="https://foss.heptapod.net/mercurial/hg-git">the Hg-Git
@@ -147,12 +146,10 @@ hggit = </pre>
         </p>
 
         <pre>[extensions]
-hgext.bookmarks =
 hggit = [path-to]/hg-git/hggit</pre>
 
         <p>
-          That will enable the Hg-Git extension for you. The bookmarks
-          section is only required prior to hg 1.7. Bookmarks will be
+          That will enable the Hg-Git extension for you. Bookmarks will be
           translated to git heads when pushing.
         </p>
       </div>
@@ -170,11 +167,11 @@ hggit = [path-to]/hg-git/hggit</pre>
           known to work.
         </p>
         <p>
-          It also needs Dulwich version 0.8.0 or later; Dulwich
+          It also needs Dulwich version 0.19.0 or later; Dulwich
           is a pure-Python implementation of the Git file formats and
           protocols. There are <strong>no Git binary
             dependencies</strong>: you do not need to have Git installed
-          on your system. 
+          on your system.
         </p>
       </div>
 
