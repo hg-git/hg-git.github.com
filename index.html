@@ -99,13 +99,12 @@ default = git+ssh://git@github.com/schacon/some-repo.git</pre>
           free <a href="http://msdn.microsoft.com/en-us/express/future/bb421473">Microsoft
           Visual C++</a>. (Be sure to install the 2008 version for
           compatibility reasons.) On Debian-style Linux,
-          run <code>apt-get install python-dev</code>.
+          run <code>sudo apt-get install python-dev python-pip</code>.
         </p>                
         <p>
-          Secondly, run <code>easy_install hg-git</code>. If you don't
-          have easy_install available, you can get it as part of
-          Python's 
-          <a href="https://pypi.org/project/setuptools/">setuptools</a>
+          Secondly, run <code>sudo pip install hg-git</code>. If you don't
+          have pip available, you can get it as part of Python's 
+          <a href="https://pypi.org/project/pip/">pip package installer</a>
           package.
         </p>
         
@@ -114,6 +113,8 @@ default = git+ssh://git@github.com/schacon/some-repo.git</pre>
           comes with hg-git (and Dulwich), though it 
           <a href="https://tortoisehg.readthedocs.io/en/latest/nonhg.html#hg-git-git">still needs to be enabled</a>
           as shown below (or through the TortoiseHg settings).
+          This currently only <a href="https://bitbucket.org/tortoisehg/thg/issues/5140/hg-git-abort-no-module-named-selectors">
+          works with TortoiseHg up to version 4.5.2.</a>
         </p>
         
         <p>
